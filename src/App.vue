@@ -6,6 +6,8 @@
             <router-link to="/about">About</router-link>
             |
             <router-link to="/vue-echarts">vue-echarts</router-link>
+            |
+            <router-link to="/line">line</router-link>
         </div>
         <router-view />
     </div>

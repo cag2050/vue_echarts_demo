@@ -1,13 +1,15 @@
 <template>
     <div>
-        <v-chart :options="polar" />
+        <div class="chart_container">
+            <v-chart :options="polar" :autoresize="true" />
+        </div>
     </div>
 </template>
 
 <script>
-import ECharts from "vue-echarts";
-import "echarts/lib/chart/line";
-import "echarts/lib/component/polar";
+import ECharts from "vue-echarts"
+import "echarts/lib/chart/line"
+import "echarts/lib/component/polar"
 
 export default {
     components: {
@@ -15,7 +17,6 @@ export default {
     },
     data() {
         return {
-            data: [],
             polar: {
                 title: {
                     text: "极坐标双数值轴"
@@ -45,21 +46,30 @@ export default {
                         name: "line",
                         type: "line",
                         showSymbol: false,
-                        data: this.data
+                        data: []
                     }
                 ],
                 animationDuration: 2000
             }
-        };
+        }
     },
     mounted() {
         for (let i = 0; i <= 360; i++) {
-            let t = (i / 180) * Math.PI;
-            let r = Math.sin(2 * t) * Math.cos(2 * t);
-            this.data.push([r, i]);
+            let t = (i / 180) * Math.PI
+            let r = Math.sin(2 * t) * Math.cos(2 * t)
+            this.polar.series[0].data.push([r, i])
         }
     }
-};
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+.chart_container {
+    width: 100%;
+    height: 400px;
+}
+.echarts {
+    width: 100%;
+    height: 100%;
+}
+</style>
