@@ -20,9 +20,9 @@ const routes = [
             import(/* webpackChunkName: "about" */ "../views/About.vue")
     },
     {
-        path: "/vue-echarts",
-        name: "vue-echarts",
-        component: () => import("../views/VueEchartsDemo.vue")
+        path: "/polar",
+        name: "polar",
+        component: () => import("../views/PolarDemo.vue")
     },
     {
         path: "/line",

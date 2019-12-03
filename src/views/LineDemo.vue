@@ -9,6 +9,7 @@
 <script>
 import ECharts from "vue-echarts"
 import "echarts/lib/chart/line"
+import "echarts/lib/component/title"
 import "echarts/lib/component/grid"
 import "echarts/lib/component/legend"
 import "echarts/lib/component/tooltip"
@@ -22,6 +23,9 @@ export default {
     data() {
         return {
             options: {
+                title: {
+                    text: "未来一周气温变化"
+                },
                 xAxis: {
                     type: "category",
                     data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
